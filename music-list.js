@@ -41,5 +41,10 @@ let allMusic = [
     img: "don-phuong-minh-anh",
     src: "don-phuong-minh-anh"
   },
-  
+   {
+    name: "Có Khi Nào Rời Xa",
+    artist: "Bích Phương",
+    img: "co-khi-nao-roi-xa",
+    src: "co-khi-nao-roi-xa"
+  },
 ];
