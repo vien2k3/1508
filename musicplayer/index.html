@@ -2,40 +2,64 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <title>🎵 Music Player Karaoke</title>
+  <title>🎵 by Viên Của Aiii</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="background-gradient"></div>
 
   <div class="container">
-    <h1>🌌 Nothin' on Me </h1>
-    <h2>- Leah Marie Perez</h2>
+    <h1 id="song-title">✨ Nghe nhạc vui vẻ</h1>
+    <h2 id="artist-name">by Viên</h2>
 
-    <!-- Trình phát nhạc -->
-    <audio id="audio" src="songs/song1.mp3" controls></audio>
+    <!-- Playlist -->
+    <ul id="playlist">
+      <li data-src="songs/song1.mp3" data-lrc="songs/song1.lrc" class="active">Nothin' on Me – Leah Marie Perez</li>
+      <li data-src="songs/song2.mp3" data-lrc="songs/song2.lrc">Play Date – Melanie Martinez</li>
+     
+    </ul>
 
-    <!-- Thời gian đã phát / tổng thời lượng -->
-    <div class="time-display">
-      <span id="current-time">0:00</span> /
+    <!-- Audio -->
+    <audio id="audio" src="songs/song1.mp3" preload="metadata"></audio>
+   <div class="player-button-wrapper">
+  <button id="play-btn" class="ripple-btn">
+    <svg id="play-icon" viewBox="0 0 64 64" width="48" height="48">
+      <polygon points="16,10 52,32 16,54" fill="white"/>
+    </svg>
+  </button>
+</div>
+
+    <!-- Thanh tiến trình tùy chỉnh -->
+    <div class="time-bar">
+      <span id="current-time">0:00</span>
+      <div class="progress-track" id="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+        <div class="progress-thumb" id="progress-thumb"></div>
+      </div>
       <span id="duration">0:00</span>
     </div>
 
-    <!-- Thanh tiến trình tua mượt -->
-    <input type="range" id="progress" min="0" value="0" step="0.1" />
-
-    <!-- Canvas hiển thị sóng mềm + gradient -->
+    <!-- Visualizer: waveform -->
     <div class="canvas-container">
-      <canvas id="waveform" width="800" height="120"></canvas>
+      <canvas id="waveform" width="800" height="100"></canvas>
       <div class="waveform-overlay"></div>
     </div>
 
-    <!-- Lời bài hát song ngữ -->
+    <!-- Lời bài hát -->
     <div id="lyrics-container">
       <div id="lyrics"></div>
     </div>
   </div>
-
+<div class="theme-toggle">
+  <label>🎨 Theme:
+    <select id="theme-select">
+      <option value="dark">Dark</option>
+      <option value="light">Light</option>
+      <option value="neon">Neon</option>
+      <option value="spotify">Spotify</option>
+    </select>
+  </label>
+</div>
   <script src="script.js"></script>
 </body>
 </html>
