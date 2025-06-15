@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>🎵 Music Player Karaoke</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background-gradient"></div>
+
+  <div class="container">
+    <h1>🌌 Nothin' on Me </h1>
+    <h2>- Leah Marie Perez</h2>
+
+    <!-- Trình phát nhạc -->
+    <audio id="audio" src="songs/song1.mp3" controls></audio>
+
+    <!-- Thời gian đã phát / tổng thời lượng -->
+    <div class="time-display">
+      <span id="current-time">0:00</span> /
+      <span id="duration">0:00</span>
+    </div>
+
+    <!-- Thanh tiến trình tua mượt -->
+    <input type="range" id="progress" min="0" value="0" step="0.1" />
+
+    <!-- Canvas hiển thị sóng mềm + gradient -->
+    <div class="canvas-container">
+      <canvas id="waveform" width="800" height="120"></canvas>
+      <div class="waveform-overlay"></div>
+    </div>
+
+    <!-- Lời bài hát song ngữ -->
+    <div id="lyrics-container">
+      <div id="lyrics"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
