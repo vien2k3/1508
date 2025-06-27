@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karaoke Pro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <video autoplay muted loop id="bg-video">
+    <source src="backgrounds/particles.mp4" type="video/mp4" />
+  </video>
+
+  <div class="stage-lights"></div>
+
+  <div class="karaoke-container">
+    <audio id="audio" preload="metadata"></audio>
+
+    <h2 id="song-title">🎵 Bài hát: Đang tải...</h2>
+
+    <div class="controls">
+      <button id="prev-btn">⏮️</button>
+      <button id="play-btn">▶️</button>
+      <button id="next-btn">⏭️</button>
+    </div>
+
+    <div id="progress-container">
+      <div id="progress-bar">
+        <div id="progress-fill"></div>
+        <div id="progress-thumb"></div>
+      </div>
+    </div>
+
+    <div id="lyrics-box"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

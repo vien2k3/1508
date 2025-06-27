@@ -1,0 +1,228 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(-45deg, #1db954, #0099ff, #6c5ce7, #f9ca24);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  overflow-x: hidden;
+  color: #fff;
+  text-align: center;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#bg-video {
+  position: fixed;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+}
+
+.stage-lights {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle at 40% 40%, rgba(255,255,255,0.05), transparent 60%);
+  animation: moveLights 20s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes moveLights {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-50%, -50%); }
+}
+
+.karaoke-container {
+  width: 100%;
+  max-width: 850px;
+  margin: auto;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+#playlist {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-bottom: 1rem;
+  gap: 0.8rem;
+}
+
+#playlist li {
+  background: rgba(255,255,255,0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#playlist li:hover,
+#playlist li.active {
+  background: #1db954;
+  color: #fff;
+}
+
+#progress-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 1.2rem auto;
+  position: relative;
+  height: 10px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#progress-bar {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#progress-fill {
+  height: 100%;
+  background: #1db954;
+  width: 0%;
+  border-radius: 5px;
+  transition: width 0.1s linear;
+}
+#progress-thumb {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+  left: 0%;
+  pointer-events: none;
+}
+
+#play-btn {
+  background: #1db954;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  font-size: 1.2rem;
+  border-radius: 40px;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+
+#lyrics-box {
+  max-height: 300px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  padding: 0 1rem;
+}
+
+.karaoke-line {
+  margin: 1rem 0;
+  opacity: 0.4;
+  transition: opacity 0.4s ease;
+  --color1: #1db954;
+  --color2: #1ed760;
+}
+.karaoke-line.active {
+  opacity: 1;
+}
+
+.karaoke-word {
+  display: inline-block;
+  margin: 0 4px;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.karaoke-word.active {
+  font-weight: bold;
+  opacity: 1;
+  background: linear-gradient(90deg, var(--color1), var(--color2));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: sweep 0.6s ease forwards;
+  text-shadow: 0 0 6px var(--color2);
+}
+
+.karaoke-word.active::after {
+  content: attr(data-reflect);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  opacity: 0.25;
+  transform: scaleY(-1);
+  color: var(--color1);
+  font-size: 0.85em;
+  pointer-events: none;
+  line-height: 1em;
+}
+
+@keyframes sweep {
+  from { background-position: 0% 50%; opacity: 0.3; }
+  to { background-position: 100% 50%; opacity: 1; }
+}
+
+/* 📱 Responsive cho màn hình nhỏ */
+@media screen and (max-width: 768px) {
+  .karaoke-container {
+    padding: 1.2rem;
+  }
+
+  #playlist {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #lyrics-box {
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+    max-height: 240px;
+  }
+
+  #play-btn {
+    width: 80%;
+    font-size: 1rem;
+  }
+
+  #progress-container {
+    max-width: 90%;
+  }
+}
+
+#song-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 5px #000;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.2rem 0;
+}
+
+.controls button {
+  background: #1db954;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.4rem;
+  font-size: 1.2rem;
+  border-radius: 40px;
+  cursor: pointer;
+}
