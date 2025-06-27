@@ -10,8 +10,8 @@ const prevBtn = document.getElementById("prev-btn");
 
 let wordElements = [];
 const songs = [
-  { title: "Sky Full of Stars", src: "songs/song1.mp3", lrc: "songs/song1.lrc" },
-  { title: "Faded", src: "songs/song2.mp3", lrc: "songs/song2.lrc" }
+  { title: "Thương Một Người Mất Cả Tương Lai", src: "songs/song1.mp3", lrc: "songs/song1.lrc" },
+  { title: "Play Date", src: "songs/song2.mp3", lrc: "songs/song2.lrc" }
 ];
 let currentIndex = 0;
 
