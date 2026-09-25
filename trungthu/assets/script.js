@@ -362,7 +362,7 @@ const wishList = [
     img: "./assets/2.jpg",
   },
   {
-    text: "Trăng tròn ấm áp, chúc tình tri kỷ của chúng ta mãi bền chặt.",
+    text: "Trăng tròn ấm áp, chúc tình tri kỷ của chúng ta mãi bền chặt (mau lên lv11😘).",
     img: "./assets/3.jpg",
   },
   {
